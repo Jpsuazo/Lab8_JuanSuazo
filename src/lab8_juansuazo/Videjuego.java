@@ -4,19 +4,53 @@
  */
 package lab8_juansuazo;
 
+import java.util.Scanner;
+
 /**
  *
  * @author juanp
  */
 public class Videjuego {
-    public static void registrar (){
-    
-}
-    public static void Mostrar (){
-        
-    
-}
-    public static void Buscar (){
-        
+
+    private int codigo;
+    private String videojuego;
+    private String plataforma;
+    private float precio;
+    private int stock;
+    static Scanner entrada = new Scanner(System.in);
+
+    public Videjuego(int codigo, String videojuegeo, String plataforma, float precio, int stock) {
+        this.codigo = codigo;
+        this.videojuego = videojuego;
+        this.plataforma = plataforma;
+        this.precio = precio;
+        this.stock = stock;
     }
+
+    public int codigo() {
+        return codigo;
+
+    }
+
+    public String videojuego() {
+        return videojuego;
+
+    }
+
+    public String plataforma() {
+        return plataforma;
+
+    }
+
+    public float precio() {
+        return precio;
+
+    }
+
+    public int Stock() {
+        return stock;
+    }
+
+   
+
 }
