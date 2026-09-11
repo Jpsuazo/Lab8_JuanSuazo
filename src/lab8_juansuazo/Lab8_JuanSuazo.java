@@ -30,7 +30,7 @@ public class Lab8_JuanSuazo {
             System.out.println("5. Eliminar videojuego ");
             System.out.println("6. MOstrar estantes ");
             System.out.println("6. Mostrar juegos con poco stock ");
-            System.out.println("0. Salir: ");
+            System.out.println("0. Salir");
             System.out.println("Ingrese una opcion: ");
             opcion = entrada.nextInt();
             switch (opcion) {
@@ -66,7 +66,11 @@ public class Lab8_JuanSuazo {
     }
 
     public static void register() {
-        
+        if (Gamelof.size()>=12) {
+            System.out.println("No se puede agregar el juego a gamlof");
+            return;
+            
+        }
 
     }
 }
