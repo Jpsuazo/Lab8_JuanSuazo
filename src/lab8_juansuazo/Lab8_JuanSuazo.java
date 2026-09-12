@@ -15,9 +15,8 @@ public class Lab8_JuanSuazo {
 
     static Scanner entrada = new Scanner(System.in);
 
-    
     static ArrayList<Videjuego> Gamelof = new ArrayList<>();
-    static String [][] repisas = new String[3][4];
+    static String[][] repisas = new String[3][4];
 
     public static void main(String[] args) {
         int opcion;
@@ -66,22 +65,74 @@ public class Lab8_JuanSuazo {
     }
 
     public static void register() {
-        if (Gamelof.size()>=12) {
+        if (Gamelof.size() >= 12) {
             System.out.println("No se puede agregar el juego a gamlof");
             return;
-            
-            
-        }else{
+
+        } else {
             System.out.println("Codigo: ");
             int codigo = entrada.nextInt();
             boolean codigorepetido = false;
             for (int posicion = 0; posicion < Gamelof.size(); posicion++) {
-                if () {
-                    
-                    
+                if (Gamelof.get(posicion).getCodigo() == codigo) {
+                    codigorepetido = true;
+
+                }
+                if (codigorepetido == true) {
+
+                    System.out.println("Ese codigo ya esta registrado.");
+
+                } else {
+
+                    entrada.nextLine();
+
+                    System.out.print("Nombre: ");
+                    String nombre = entrada.nextLine();
+
+                    System.out.print("Plataforma: ");
+                    String plataforma = entrada.nextLine();
+
+                    System.out.print("Precio: ");
+                    double precio = entrada.nextDouble();
+
+                    System.out.print("Stock: ");
+                    int stock = entrada.nextInt();
+
+                    Videjuego videojuego = new Videjuego(
+                            codigo,
+                            nombre,
+                            plataforma,
+                            precio,
+                            stock
+                    );
+
+                    Gamelof.add(videojuego);
+
+                    colocarrepisas(nombre);
+
+                    System.out.println("Videojuego registrado correctamente.");
                 }
             }
         }
-
     }
+
+    public static void colocarrepisas(String nombre) {
+
+        boolean colocado = false;
+
+        for (int fila = 0; fila < repisas.length; fila++) {
+
+            for (int columna = 0; columna < repisas[fila].length; columna++) {
+
+                if (repisas[fila][columna].equals("Libre") && colocado == false) {
+
+                    repisas[fila][columna] = nombre;
+
+                    colocado = true;
+                }
+            }
+        }
+    }
+    
+    
 }
