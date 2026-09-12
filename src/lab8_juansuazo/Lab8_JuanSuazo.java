@@ -133,6 +133,91 @@ public class Lab8_JuanSuazo {
             }
         }
     }
-    
-    
+     public static void liberarEstante(String nombre) {
+
+        for (int fila = 0; fila < repisas.length; fila++) {
+
+            for (int columna = 0; columna < repisas[fila].length; columna++) {
+
+                if (repisas[fila][columna].equals(nombre)) {
+
+                    repisas[fila][columna] = "Libre";
+                }
+            }
+        }
+    }
+     public static void mostrarEstantes() {
+
+        System.out.println("===== Repisas =====");
+
+        for (int fila = 0; fila < repisas.length; fila++) {
+
+            for (int columna = 0; columna < repisas[fila].length; columna++) {
+
+                System.out.print("[" + repisas[fila][columna] + "]");
+            }
+
+            System.out.println();
+        }
+    }
+ public static void mostrarVideojuegos() {
+
+        if (Gamelof.size() == 0) {
+
+            System.out.println("No hay videojuegos registrados.");
+
+        } else {
+
+            System.out.println("===== VIDEOJUEGOS REGISTRADOS =====");
+
+            for (int posicion = 0; posicion < Gamelof.size(); posicion++) {
+
+                Videjuego videojuegoActual = Gamelof.get(posicion);
+
+                System.out.println("Videojuego #" + (posicion + 1));
+                System.out.println("Codigo: " + videojuegoActual.getCodigo());
+                System.out.println("Nombre: " + videojuegoActual.getNombre());
+                System.out.println("Plataforma: " + videojuegoActual.getPlataforma());
+                System.out.println("Precio: " + videojuegoActual.getPrecio());
+                System.out.println("Stock: " + videojuegoActual.getStock());
+            }
+        }
+    }
+ public static void buscarVideojuego() {
+
+        System.out.print("Ingrese el codigo del videojuego: ");
+        int codigo = entrada.nextInt();
+
+        Videjuego videojuegoEncontrado = buscarPorCodigo(codigo);
+
+        if (videojuegoEncontrado != null) {
+
+            System.out.println("\n===== VIDEOJUEGO ENCONTRADO =====");
+            System.out.println("Codigo: " + videojuegoEncontrado.getCodigo());
+            System.out.println("Nombre: " + videojuegoEncontrado.getNombre());
+            System.out.println("Plataforma: " + videojuegoEncontrado.getPlataforma());
+            System.out.println("Precio: " + videojuegoEncontrado.getPrecio());
+            System.out.println("Stock: " + videojuegoEncontrado.getStock());
+
+        } else {
+
+            System.out.println("No existe un videojuego con ese codigo.");
+        }
+    }
+     public static Videjuego buscarPorCodigo(int codigo) {
+
+        for (int posicion = 0; posicion < Gamelof.size(); posicion++) {
+
+            Videjuego videojuegoActual = Gamelof.get(posicion);
+
+            if (videojuegoActual.getCodigo() == codigo) {
+
+                return videojuegoActual;
+            }
+        }
+
+        return null;
+    }
+     
+
 }
