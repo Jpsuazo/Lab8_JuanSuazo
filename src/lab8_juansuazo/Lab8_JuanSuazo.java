@@ -192,7 +192,7 @@ public class Lab8_JuanSuazo {
 
         if (videojuegoEncontrado != null) {
 
-            System.out.println("\n===== VIDEOJUEGO ENCONTRADO =====");
+            System.out.println("===== VIDEOJUEGO ENCONTRADO =====");
             System.out.println("Codigo: " + videojuegoEncontrado.getCodigo());
             System.out.println("Nombre: " + videojuegoEncontrado.getNombre());
             System.out.println("Plataforma: " + videojuegoEncontrado.getPlataforma());
