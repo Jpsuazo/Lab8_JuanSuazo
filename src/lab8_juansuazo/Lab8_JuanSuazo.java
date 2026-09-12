@@ -19,50 +19,72 @@ public class Lab8_JuanSuazo {
     static String[][] repisas = new String[3][4];
 
     public static void main(String[] args) {
-        int opcion;
-        do {
-            System.out.println("====== Game Stop ======");
-            System.out.println("1. Registrar Videojuego ");
-            System.out.println("2. Mostrar Videojuegos ");
-            System.out.println("3. Buscar videojuego ");
-            System.out.println("4. Actualizar videojuego ");
-            System.out.println("5. Eliminar videojuego ");
-            System.out.println("6. MOstrar estantes ");
-            System.out.println("6. Mostrar juegos con poco stock ");
-            System.out.println("0. Salir");
-            System.out.println("Ingrese una opcion: ");
-            opcion = entrada.nextInt();
-            switch (opcion) {
-                case 1:
-                    System.out.println("Registrar  videojuego");
+   
 
-                    break;
-                case 2:
-                    System.out.println("Mostrar videojuegos");
+    int opcion;
 
-                    break;
-                case 3:
-                    System.out.println("Buscar videojuego");
+    do {
 
-                    break;
-                case 4:
-                    System.out.println("Actualizar videojuego");
+        System.out.println("====== Game Stop ======");
+        System.out.println("1. Registrar Videojuego");
+        System.out.println("2. Mostrar Videojuegos");
+        System.out.println("3. Buscar videojuego");
+        System.out.println("4. Actualizar videojuego");
+        System.out.println("5. Eliminar videojuego");
+        System.out.println("6. Mostrar estantes");
+        System.out.println("7. Mostrar juegos con poco stock");
+        System.out.println("0. Salir");
+        System.out.print("Ingrese una opcion: ");
 
-                    break;
-                case 5:
-                    System.out.println("Eliminar videojuego");
+        opcion = entrada.nextInt();
 
-                    break;
-                case 6:
-                    System.out.println("Mostrar estantes");
+        switch (opcion) {
 
-                    break;
-                case 7:
-                    System.out.println("Mostrar juegos con poco stock");
-            }
-        } while (opcion != 0);
+            case 1:
+                System.out.println("Registrar videojuego");
+                register();
+                break;
 
-    }
+            case 2:
+                System.out.println("Mostrar videojuegos");
+                mostrarVideojuegos();
+                break;
+
+            case 3:
+                System.out.println("Buscar videojuego");
+                buscarVideojuego();
+                break;
+
+            case 4:
+                System.out.println("Actualizar videojuego");
+                actualizarVideojuego();
+                break;
+
+            case 5:
+                System.out.println("Eliminar videojuego");
+                eliminarVideojuego();
+                break;
+
+            case 6:
+                System.out.println("Mostrar estantes");
+                mostrarEstantes();
+                break;
+
+            case 7:
+                System.out.println("Mostrar juegos con poco stock");
+                mostrarPocoStock();
+                break;
+
+            case 0:
+                System.out.println("Programa finalizado.");
+                break;
+
+            default:
+                System.out.println("Opcion invalida.");
+        }
+
+    } while (opcion != 0);
+}
 
     public static void register() {
         if (Gamelof.size() >= 12) {
@@ -133,7 +155,8 @@ public class Lab8_JuanSuazo {
             }
         }
     }
-     public static void liberarrepisa(String nombre) {
+
+    public static void liberarrepisa(String nombre) {
 
         for (int fila = 0; fila < repisas.length; fila++) {
 
@@ -146,7 +169,8 @@ public class Lab8_JuanSuazo {
             }
         }
     }
-     public static void mostrarEstantes() {
+
+    public static void mostrarEstantes() {
 
         System.out.println("===== Repisas =====");
 
@@ -160,7 +184,8 @@ public class Lab8_JuanSuazo {
             System.out.println();
         }
     }
- public static void mostrarVideojuegos() {
+
+    public static void mostrarVideojuegos() {
 
         if (Gamelof.size() == 0) {
 
@@ -183,7 +208,8 @@ public class Lab8_JuanSuazo {
             }
         }
     }
- public static void buscarVideojuego() {
+
+    public static void buscarVideojuego() {
 
         System.out.print("Ingrese el codigo del videojuego: ");
         int codigo = entrada.nextInt();
@@ -204,7 +230,8 @@ public class Lab8_JuanSuazo {
             System.out.println("No existe un videojuego con ese codigo.");
         }
     }
-     public static Videjuego buscarPorCodigo(int codigo) {
+
+    public static Videjuego buscarPorCodigo(int codigo) {
 
         for (int posicion = 0; posicion < Gamelof.size(); posicion++) {
 
@@ -218,8 +245,8 @@ public class Lab8_JuanSuazo {
 
         return null;
     }
-     
-      public static void actualizarVideojuego() {
+
+    public static void actualizarVideojuego() {
 
         System.out.print("Ingrese el codigo del videojuego: ");
         int codigo = entrada.nextInt();
@@ -249,7 +276,8 @@ public class Lab8_JuanSuazo {
             System.out.println("No existe un videojuego con ese codigo.");
         }
     }
-      public static void eliminarVideojuego() {
+
+    public static void eliminarVideojuego() {
 
         System.out.print("Ingrese el codigo del videojuego: ");
         int codigo = entrada.nextInt();
@@ -271,7 +299,34 @@ public class Lab8_JuanSuazo {
             System.out.println("No existe un videojuego con ese codigo.");
         }
     }
-       
-      
+
+    public static void mostrarPocoStock() {
+
+        boolean encontrado = false;
+
+        System.out.println("===== VIDEOJUEGOS CON POCO STOCK =====");
+
+        for (int posicion = 0; posicion < Gamelof.size(); posicion++) {
+
+            Videjuego videojuegoActual = Gamelof.get(posicion);
+
+            if (videojuegoActual.getStock() <= 2) {
+
+                System.out.println("Codigo: " + videojuegoActual.getCodigo());
+                System.out.println("Nombre: " + videojuegoActual.getNombre());
+                System.out.println("Plataforma: " + videojuegoActual.getPlataforma());
+                System.out.println("Precio: " + videojuegoActual.getPrecio());
+                System.out.println("Stock: " + videojuegoActual.getStock());
+                System.out.println("-------------------------");
+
+                encontrado = true;
+            }
+        }
+
+        if (encontrado == false) {
+
+            System.out.println("No hay videojuegos con 2 unidades o menos.");
+        }
+    }
 
 }
