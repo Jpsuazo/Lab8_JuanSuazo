@@ -133,7 +133,7 @@ public class Lab8_JuanSuazo {
             }
         }
     }
-     public static void liberarEstante(String nombre) {
+     public static void liberarrepisa(String nombre) {
 
         for (int fila = 0; fila < repisas.length; fila++) {
 
@@ -262,7 +262,7 @@ public class Lab8_JuanSuazo {
 
             Gamelof.remove(videojuegoEncontrado);
 
-            liberarEstante(nombreVideojuego);
+            liberarrepisa(nombreVideojuego);
 
             System.out.println("Videojuego eliminado correctamente.");
 
