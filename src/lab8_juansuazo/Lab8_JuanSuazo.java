@@ -88,55 +88,52 @@ public class Lab8_JuanSuazo {
 
     public static void register() {
         if (Gamelof.size() >= 12) {
-            System.out.println("No se puede agregar el juego a gamlof");
-            return;
+
+            System.out.println("No se pueden registrar mas videojuegos.");
+            System.out.println("Los 12 espacios de los estantes estan ocupados.");
 
         } else {
-            System.out.println("Codigo: ");
+
+            System.out.print("Ingrese el codigo: ");
             int codigo = entrada.nextInt();
-            boolean codigorepetido = false;
-            for (int posicion = 0; posicion < Gamelof.size(); posicion++) {
-                if (Gamelof.get(posicion).getCodigo() == codigo) {
-                    codigorepetido = true;
 
-                }
-                if (codigorepetido == true) {
+            if (buscarPorCodigo(codigo) != null) {
 
-                    System.out.println("Ese codigo ya esta registrado.");
+                System.out.println("El codigo ya existe.");
 
-                } else {
+            } else {
 
-                    entrada.nextLine();
+                entrada.nextLine();
 
-                    System.out.print("Nombre: ");
-                    String nombre = entrada.nextLine();
+                System.out.print("Ingrese el nombre: ");
+                String nombre = entrada.nextLine();
 
-                    System.out.print("Plataforma: ");
-                    String plataforma = entrada.nextLine();
+                System.out.print("Ingrese la plataforma: ");
+                String plataforma = entrada.nextLine();
 
-                    System.out.print("Precio: ");
-                    double precio = entrada.nextDouble();
+                System.out.print("Ingrese el precio: ");
+                double precio = entrada.nextDouble();
 
-                    System.out.print("Stock: ");
-                    int stock = entrada.nextInt();
+                System.out.print("Ingrese el stock: ");
+                int stock = entrada.nextInt();
 
-                    Videjuego videojuego = new Videjuego(
-                            codigo,
-                            nombre,
-                            plataforma,
-                            precio,
-                            stock
-                    );
+                Videjuego nuevoVideojuego = new Videjuego(
+                        codigo,
+                        nombre,
+                        plataforma,
+                        precio,
+                        stock
+                );
 
-                    Gamelof.add(videojuego);
+                Gamelof.add(nuevoVideojuego);
 
-                    colocarrepisas(nombre);
+                colocarrepisas(nombre);
 
-                    System.out.println("Videojuego registrado correctamente.");
-                }
+                System.out.println("Videojuego registrado correctamente.");
             }
         }
     }
+    
 
     public static void colocarrepisas(String nombre) {
 
