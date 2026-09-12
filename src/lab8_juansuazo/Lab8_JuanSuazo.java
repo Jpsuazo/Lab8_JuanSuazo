@@ -70,6 +70,17 @@ public class Lab8_JuanSuazo {
             System.out.println("No se puede agregar el juego a gamlof");
             return;
             
+            
+        }else{
+            System.out.println("Codigo: ");
+            int codigo = entrada.nextInt();
+            boolean codigorepetido = false;
+            for (int posicion = 0; posicion < Gamelof.size(); posicion++) {
+                if () {
+                    
+                    
+                }
+            }
         }
 
     }

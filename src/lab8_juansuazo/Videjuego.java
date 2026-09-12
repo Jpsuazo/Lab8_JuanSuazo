@@ -13,44 +13,56 @@ import java.util.Scanner;
 public class Videjuego {
 
     private int codigo;
-    private String videojuego;
+    private String nombre;
     private String plataforma;
-    private float precio;
+    private double precio;
     private int stock;
-    static Scanner entrada = new Scanner(System.in);
 
-    public Videjuego(int codigo, String videojuegeo, String plataforma, float precio, int stock) {
+    public Videjuego(int codigo, String nombre, String plataforma, double precio, int stock) {
         this.codigo = codigo;
-        this.videojuego = videojuego;
+        this.nombre = nombre;
         this.plataforma = plataforma;
         this.precio = precio;
         this.stock = stock;
     }
 
-    public int codigo() {
+    public int getCodigo() {
         return codigo;
-
     }
 
-    public String videojuego() {
-        return videojuego;
-
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
-    public String plataforma() {
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getPlataforma() {
         return plataforma;
-
     }
 
-    public float precio() {
+    public void setPlataforma(String plataforma) {
+        this.plataforma = plataforma;
+    }
+
+    public double getPrecio() {
         return precio;
-
     }
 
-    public int Stock() {
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    public int getStock() {
         return stock;
     }
 
-   
-
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
 }
