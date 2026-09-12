@@ -219,5 +219,59 @@ public class Lab8_JuanSuazo {
         return null;
     }
      
+      public static void actualizarVideojuego() {
+
+        System.out.print("Ingrese el codigo del videojuego: ");
+        int codigo = entrada.nextInt();
+
+        Videjuego videojuegoEncontrado = buscarPorCodigo(codigo);
+
+        if (videojuegoEncontrado != null) {
+
+            System.out.println("Videojuego encontrado:");
+            System.out.println("Nombre: " + videojuegoEncontrado.getNombre());
+            System.out.println("Precio actual: " + videojuegoEncontrado.getPrecio());
+            System.out.println("Stock actual: " + videojuegoEncontrado.getStock());
+
+            System.out.print("Ingrese el nuevo precio: ");
+            double nuevoPrecio = entrada.nextDouble();
+
+            System.out.print("Ingrese el nuevo stock: ");
+            int nuevoStock = entrada.nextInt();
+
+            videojuegoEncontrado.setPrecio(nuevoPrecio);
+            videojuegoEncontrado.setStock(nuevoStock);
+
+            System.out.println("Videojuego actualizado correctamente.");
+
+        } else {
+
+            System.out.println("No existe un videojuego con ese codigo.");
+        }
+    }
+      public static void eliminarVideojuego() {
+
+        System.out.print("Ingrese el codigo del videojuego: ");
+        int codigo = entrada.nextInt();
+
+        Videjuego videojuegoEncontrado = buscarPorCodigo(codigo);
+
+        if (videojuegoEncontrado != null) {
+
+            String nombreVideojuego = videojuegoEncontrado.getNombre();
+
+            Gamelof.remove(videojuegoEncontrado);
+
+            liberarEstante(nombreVideojuego);
+
+            System.out.println("Videojuego eliminado correctamente.");
+
+        } else {
+
+            System.out.println("No existe un videojuego con ese codigo.");
+        }
+    }
+       
+      
 
 }
